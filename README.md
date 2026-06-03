@@ -42,6 +42,10 @@ In addition to building a predictive model, this project addresses common real-w
 House_Rent_Dataset.csv
 ```
 
+**Dataset Source**
+
+Kaggle: <https://www.kaggle.com/datasets/iamsouravbanerjee/house-rent-prediction-dataset>
+
 ## Overview
 
 | Attribute                      | Value |

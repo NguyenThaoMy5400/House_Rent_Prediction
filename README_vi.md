@@ -42,6 +42,10 @@ Ngoài việc xây dựng mô hình dự đoán, dự án còn tập trung vào 
 House_Rent_Dataset.csv
 ```
 
+**Nguồn dataset**
+
+Kaggle: <https://www.kaggle.com/datasets/iamsouravbanerjee/house-rent-prediction-dataset>
+
 ## Thông tin tổng quan
 
 | Thuộc tính                             | Giá trị |
