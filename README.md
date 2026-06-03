@@ -1,8 +1,8 @@
 # 🏠 House Rent Prediction
 
-Dự án Machine Learning dự đoán **giá thuê nhà/căn hộ (Rent)** từ các đặc trưng bất động sản bằng các mô hình hồi quy trong thư viện **scikit-learn**.
+A Machine Learning project for predicting **house/apartment rental prices (Rent)** using various regression models implemented with **scikit-learn**.
 
-Toàn bộ quy trình từ khám phá dữ liệu (EDA), tiền xử lý dữ liệu, feature engineering, mã hóa biến phân loại, xây dựng pipeline, tối ưu siêu tham số bằng **GridSearchCV** đến đánh giá mô hình đều được thực hiện trong notebook:
+The complete workflow, including Exploratory Data Analysis (EDA), data preprocessing, feature engineering, categorical encoding, pipeline construction, hyperparameter tuning using **GridSearchCV**, and model evaluation, is implemented in the notebook:
 
 ```text
 House_Rent_Prediction_final.ipynb
@@ -10,48 +10,48 @@ House_Rent_Prediction_final.ipynb
 
 ---
 
-# 📌 Mục tiêu dự án
+# 📌 Project Objective
 
-Mục tiêu của dự án là xây dựng một mô hình hồi quy có khả năng dự đoán giá thuê nhà (`Rent`) dựa trên các đặc trưng như:
+The objective of this project is to build a regression model capable of predicting rental prices (`Rent`) based on property-related features such as:
 
-* Số phòng ngủ (`BHK`)
-* Diện tích (`Size`)
-* Tầng hiện tại và tổng số tầng (`Floor`)
-* Loại khu vực (`Area Type`)
-* Khu vực chi tiết (`Area Locality`)
-* Thành phố (`City`)
-* Tình trạng nội thất (`Furnishing Status`)
-* Đối tượng thuê phù hợp (`Tenant Preferred`)
-* Số phòng tắm (`Bathroom`)
-* Người liên hệ (`Point of Contact`)
-* Thời điểm đăng tin (`Posted On`)
+* Number of bedrooms (`BHK`)
+* Property size (`Size`)
+* Current floor and total floors (`Floor`)
+* Area type (`Area Type`)
+* Detailed location (`Area Locality`)
+* City (`City`)
+* Furnishing status (`Furnishing Status`)
+* Preferred tenant category (`Tenant Preferred`)
+* Number of bathrooms (`Bathroom`)
+* Point of contact (`Point of Contact`)
+* Posting date (`Posted On`)
 
-Ngoài việc xây dựng mô hình dự đoán, dự án còn tập trung vào việc xử lý các vấn đề thường gặp trong dữ liệu thực tế như:
+In addition to building a predictive model, this project addresses common real-world data challenges such as:
 
-* Phân phối lệch phải của biến mục tiêu `Rent`
-* Dữ liệu phân loại có cardinality cao (`Area Locality`)
-* Đảm bảo không xảy ra data leakage trong quá trình tiền xử lý
+* Right-skewed target distribution (`Rent`)
+* High-cardinality categorical features (`Area Locality`)
+* Preventing data leakage during preprocessing
 
 ---
 
 # 📂 Dataset
 
-**Tên file dữ liệu**
+**Dataset File**
 
 ```text
 House_Rent_Dataset.csv
 ```
 
-## Thông tin tổng quan
+## Overview
 
-| Thuộc tính                             | Giá trị |
-| -------------------------------------- | ------- |
-| Số dòng                                | 4746    |
-| Số cột                                 | 12      |
-| Biến mục tiêu                          | Rent    |
-| Số giá trị khác nhau của Area Locality | 2235    |
+| Attribute                      | Value |
+| ------------------------------ | ----- |
+| Number of Rows                 | 4746  |
+| Number of Columns              | 12    |
+| Target Variable                | Rent  |
+| Unique Values in Area Locality | 2235  |
 
-Một số thành phố xuất hiện trong dữ liệu:
+Some cities included in the dataset:
 
 * Mumbai
 * Chennai
@@ -60,28 +60,28 @@ Một số thành phố xuất hiện trong dữ liệu:
 * Delhi
 * Kolkata
 
-## Các cột trong dataset
+## Dataset Features
 
-| Cột               | Ý nghĩa             |
-| ----------------- | ------------------- |
-| Posted On         | Ngày đăng tin       |
-| BHK               | Số phòng ngủ        |
-| Rent              | Giá thuê            |
-| Size              | Diện tích           |
-| Floor             | Thông tin tầng      |
-| Area Type         | Loại khu vực        |
-| Area Locality     | Khu vực chi tiết    |
-| City              | Thành phố           |
-| Furnishing Status | Tình trạng nội thất |
-| Tenant Preferred  | Đối tượng thuê      |
-| Bathroom          | Số phòng tắm        |
-| Point of Contact  | Người liên hệ       |
+| Feature           | Description           |
+| ----------------- | --------------------- |
+| Posted On         | Property listing date |
+| BHK               | Number of bedrooms    |
+| Rent              | Rental price          |
+| Size              | Property size         |
+| Floor             | Floor information     |
+| Area Type         | Area category         |
+| Area Locality     | Detailed location     |
+| City              | City                  |
+| Furnishing Status | Furnishing condition  |
+| Tenant Preferred  | Preferred tenant type |
+| Bathroom          | Number of bathrooms   |
+| Point of Contact  | Contact person type   |
 
 ---
 
-# ⚙️ Pipeline Machine Learning
+# ⚙️ Machine Learning Pipeline
 
-Dự án được triển khai theo pipeline Machine Learning đầy đủ:
+The project follows a complete Machine Learning workflow:
 
 ```text
 Dataset
@@ -99,45 +99,45 @@ GridSearchCV
 Model Evaluation
 ```
 
-## Các bước thực hiện
+## Main Steps
 
-### 1. Đọc dữ liệu
+### 1. Data Loading
 
-Đọc dữ liệu từ file CSV.
+Load the dataset from a CSV file.
 
-### 2. Khám phá dữ liệu (EDA)
+### 2. Exploratory Data Analysis (EDA)
 
-* Kiểm tra shape
-* Kiểm tra kiểu dữ liệu
-* Kiểm tra missing values
-* Kiểm tra duplicate values
-* Phân tích phân phối của biến `Rent`
-* Trực quan hóa mối quan hệ giữa các đặc trưng và giá thuê
+* Check dataset shape
+* Inspect data types
+* Check missing values
+* Check duplicate records
+* Analyze the distribution of `Rent`
+* Visualize relationships between features and rental prices
 
 ### 3. Feature Engineering
 
-#### Xử lý cột `Posted On`
+#### Processing `Posted On`
 
-Chuyển sang kiểu datetime và tách thành:
+Convert to datetime format and extract:
 
 * Posted_Month
 * Posted_Day
 * Posted_DayOfWeek
 
-#### Xử lý cột `Floor`
+#### Processing `Floor`
 
-Tách thành:
+Split into:
 
 * Floor_Level
 * Total_Floors
 
-Ví dụ:
+Example:
 
 ```text
 3 out of 5
 ```
 
-sẽ trở thành:
+becomes:
 
 ```text
 Floor_Level = 3
@@ -146,71 +146,71 @@ Total_Floors = 5
 
 ---
 
-# 🔧 Feature Engineering nâng cao
+# 🔧 Advanced Feature Engineering
 
-## 1. Log Transform cho Rent
+## 1. Log Transformation of Rent
 
-Biến mục tiêu `Rent` có phân phối lệch phải mạnh và chứa nhiều outlier.
+The target variable `Rent` is heavily right-skewed and contains many outliers.
 
-Để giảm ảnh hưởng của các giá trị cực lớn, mô hình được huấn luyện trên:
+To reduce the impact of extreme values, the model is trained on:
 
 ```python
 y = np.log1p(data["Rent"])
 ```
 
-Sau khi dự đoán:
+After prediction:
 
 ```python
 y_pred = np.expm1(y_pred_log)
 y_test_original = np.expm1(y_test)
 ```
 
-### Lợi ích
+### Benefits
 
-* Giảm ảnh hưởng của outlier
-* Giúp mô hình học ổn định hơn
-* Dễ tối ưu hơn đối với dữ liệu giá thuê
+* Reduces the influence of outliers
+* Improves model stability
+* Facilitates optimization for rental price prediction
 
 ---
 
-## 2. Frequency Encoding cho Area Locality
+## 2. Frequency Encoding for Area Locality
 
-Cột:
+The feature:
 
 ```text
 Area Locality
 ```
 
-có tới:
+contains:
 
 ```text
-2235 giá trị khác nhau
+2235 unique values
 ```
 
-Nếu sử dụng One-Hot Encoding trực tiếp sẽ làm tăng số chiều dữ liệu rất lớn.
+Applying One-Hot Encoding directly would create an extremely high-dimensional feature space.
 
-Thay vào đó sử dụng Frequency Encoding:
+Instead, Frequency Encoding is used:
 
 ```python
 area_locality_freq_map = X_train["Area Locality"].value_counts(normalize=True)
 ```
 
-Tạo thêm đặc trưng:
+A new feature is created:
 
 ```python
 Area_Locality_Freq
 ```
 
-### Ưu điểm
+### Advantages
 
-* Không làm tăng số chiều dữ liệu
-* Giảm nguy cơ overfitting
-* Tiết kiệm bộ nhớ
-* Vẫn giữ lại thông tin vị trí
+* Prevents dimensionality explosion
+* Reduces overfitting risk
+* Saves memory
+* Retains location-related information
 
-### Chống Data Leakage
+### Preventing Data Leakage
 
-Frequency map chỉ được tính trên tập train:
+The frequency map is computed using only the training set:
 
 ```python
 area_locality_freq_map = X_train["Area Locality"].value_counts(normalize=True)
@@ -226,7 +226,7 @@ X_test["Area_Locality_Freq"] = (
 
 ---
 
-# 📊 Đặc trưng sử dụng
+# 📊 Features Used
 
 ## Numeric Features
 
@@ -250,16 +250,16 @@ X_test["Area_Locality_Freq"] = (
 
 ---
 
-# 🤖 Các mô hình được thử nghiệm
+# 🤖 Models Evaluated
 
-Dự án so sánh 4 mô hình hồi quy:
+The project compares four regression algorithms:
 
 1. Linear Regression
 2. Decision Tree Regressor
 3. Random Forest Regressor
 4. Gradient Boosting Regressor
 
-Tất cả các mô hình đều được tối ưu bằng:
+All models are optimized using:
 
 ```python
 GridSearchCV(
@@ -271,27 +271,27 @@ GridSearchCV(
 
 ---
 
-# 📈 Đánh giá mô hình
+# 📈 Model Evaluation
 
-Các metric được tính trên giá trị `Rent` gốc sau khi hoàn nguyên từ log:
+Evaluation metrics are calculated on the original rental prices after reversing the log transformation:
 
-* MAE
-* MSE
-* RMSE
+* MAE (Mean Absolute Error)
+* MSE (Mean Squared Error)
+* RMSE (Root Mean Squared Error)
 * R² Score
 
-## Ý nghĩa
+## Metric Descriptions
 
-| Metric | Ý nghĩa                                    |
-| ------ | ------------------------------------------ |
-| MAE    | Sai số tuyệt đối trung bình                |
-| MSE    | Sai số bình phương trung bình              |
-| RMSE   | Sai số cùng đơn vị với Rent                |
-| R²     | Khả năng giải thích phương sai của mô hình |
+| Metric | Description                               |
+| ------ | ----------------------------------------- |
+| MAE    | Average absolute prediction error         |
+| MSE    | Average squared prediction error          |
+| RMSE   | Prediction error in the same unit as Rent |
+| R²     | Variance explained by the model           |
 
 ---
 
-# 🏆 Kết quả thực nghiệm
+# 🏆 Experimental Results
 
 | Model                       | Best CV R² (Log Rent) |  Test MAE | Test RMSE | Test R² |
 | --------------------------- | --------------------: | --------: | --------: | ------: |
@@ -302,46 +302,47 @@ Các metric được tính trên giá trị `Rent` gốc sau khi hoàn nguyên t
 
 ---
 
-# 🥇 Mô hình tốt nhất
+# 🥇 Best Model
 
-Mô hình tốt nhất theo kết quả trên tập test:
+Based on test-set performance, the best model is:
 
 ## Linear Regression
 
-### Tham số tốt nhất
+### Best Parameters
 
 ```python
 {'regressor__fit_intercept': True}
 ```
 
-### Kết quả cuối cùng
+### Final Results
 
-| Metric |          Giá trị |
+| Metric |            Value |
 | ------ | ---------------: |
 | MAE    |        11,396.86 |
 | MSE    | 1,012,904,643.11 |
 | RMSE   |        31,826.16 |
 | R²     |           0.7533 |
 
-Mặc dù Gradient Boosting đạt điểm Cross Validation cao hơn trên thang log, nhưng Linear Regression cho kết quả tốt nhất khi đánh giá trên giá trị giá thuê thực tế.
+Although Gradient Boosting achieved a higher cross-validation score on the log-transformed target, Linear Regression produced the best performance when evaluated on the original rental prices.
 
 ---
 
-# 📁 Cấu trúc project
+# 📁 Project Structure
 
 ```text
 .
 ├── House_Rent_Prediction_final.ipynb
 ├── House_Rent_Dataset.csv
 ├── README.md
+├── README_EN.md
 └── model_comparison_results.csv
 ```
 
 ---
 
-# 🚀 Hướng dẫn chạy
+# 🚀 How to Run
 
-## Chạy trên Google Colab
+## Google Colab
 
 ```python
 from google.colab import drive
@@ -353,17 +354,17 @@ data = pd.read_csv(
 )
 ```
 
-### Các bước
+### Steps
 
-1. Upload notebook lên Google Colab.
-2. Đặt file CSV đúng vị trí trong Google Drive.
-3. Chạy notebook từ đầu đến cuối.
+1. Upload the notebook to Google Colab.
+2. Place the CSV file in the correct Google Drive location.
+3. Run all notebook cells from top to bottom.
 
 ---
 
-## Chạy trên máy local
+## Local Environment
 
-Sửa cell đọc dữ liệu:
+Modify the data loading cell:
 
 ```python
 import pandas as pd
@@ -371,7 +372,7 @@ import pandas as pd
 data = pd.read_csv("House_Rent_Dataset.csv")
 ```
 
-Sau đó chạy toàn bộ notebook bằng:
+Then run the notebook using:
 
 * Jupyter Notebook
 * VS Code
@@ -379,7 +380,7 @@ Sau đó chạy toàn bộ notebook bằng:
 
 ---
 
-# 📦 Thư viện sử dụng
+# 📦 Libraries Used
 
 ```txt
 pandas
@@ -390,7 +391,7 @@ scikit-learn
 jupyter
 ```
 
-Cài đặt:
+Installation:
 
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn jupyter
@@ -398,40 +399,44 @@ pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 
 ---
 
-# ✅ Ưu điểm của dự án
+# ✅ Project Strengths
 
-* GridSearchCV tối ưu siêu tham số
-* So sánh nhiều mô hình hồi quy
-* Đánh giá trên giá trị Rent thực tế
-
----
-
-# ⚠️ Hạn chế hiện tại
-
-
-* Chưa thử các mô hình boosting nâng cao
-* Chưa có hệ thống dự đoán thời gian thực
+* Complete Machine Learning pipeline
+* Effective feature engineering
+* Log transformation for target variable
+* Frequency encoding for high-cardinality features
+* Hyperparameter tuning with GridSearchCV
+* Comparison of multiple regression algorithms
+* Evaluation on original rental prices
 
 ---
 
-# 🔮 Hướng phát triển
+# ⚠️ Current Limitations
 
-Trong tương lai có thể:
-
-* Thêm XGBoost
-* Thêm LightGBM
-* Thêm CatBoost
-* Lưu mô hình bằng Joblib
-* Xây dựng giao diện Streamlit
-* Thêm SHAP để giải thích mô hình
-* Tối ưu xử lý outlier
+* Advanced boosting models have not been explored
+* No real-time prediction system
+* Model persistence has not been implemented
 
 ---
 
-# 👨‍💻 Tác giả
+# 🔮 Future Improvements
+
+Potential future enhancements include:
+
+* Adding XGBoost
+* Adding LightGBM
+* Adding CatBoost
+* Saving trained models with Joblib
+* Building a Streamlit web application
+* Using SHAP for model interpretability
+* Further outlier optimization
+
+---
+
+# 👨‍💻 Author
 
 ```text
-Author : <Nguyen Thi Thao My>
+Author : Nguyen Thi Thao My
 Project: House Rent Prediction
 ```
 
@@ -439,7 +444,7 @@ Project: House Rent Prediction
 
 # 📜 License
 
-Dự án có thể sử dụng giấy phép:
+This project may be distributed under:
 
 ```text
 MIT License
