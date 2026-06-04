@@ -77,7 +77,7 @@ Rationale:
 
 - `Posted On` is not currently engineered into useful features.
 - `Point of Contact` mainly reflects the listing side rather than the property itself.
-- `Area Locality` has very high cardinality and is intentionally excluded to keep the pipeline simpler.
+- `Area Locality` has very high cardinality.
 
 ### Floor Feature Engineering
 
@@ -142,7 +142,6 @@ The results table in the notebook currently reports:
 Note:
 
 - Cross-validation still uses `R2` on `log1p(Rent)` internally for model selection.
-- The notebook no longer reports `Best CV R2 (log Rent)` in the final performance summary table.
 
 ## Workflow Summary
 

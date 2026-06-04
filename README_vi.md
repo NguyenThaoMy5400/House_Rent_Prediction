@@ -77,7 +77,7 @@ Lý do:
 
 - `Posted On` hiện chưa được biến đổi thành đặc trưng hữu ích.
 - `Point of Contact` phản ánh phía đăng tin nhiều hơn là bản thân căn nhà.
-- `Area Locality` có cardinality rất cao và đang được bỏ để giữ pipeline gọn hơn.
+- `Area Locality` có cardinality rất cao.
 
 ### Tạo đặc trưng từ cột `Floor`
 
@@ -142,7 +142,6 @@ Bảng kết quả trong notebook hiện báo cáo các cột:
 Lưu ý:
 
 - Cross-validation vẫn dùng `R2` trên `log1p(Rent)` để chọn mô hình.
-- Notebook không còn đưa `Best CV R2 (log Rent)` vào bảng tổng hợp hiệu suất cuối cùng.
 
 ## Tóm tắt quy trình
 
